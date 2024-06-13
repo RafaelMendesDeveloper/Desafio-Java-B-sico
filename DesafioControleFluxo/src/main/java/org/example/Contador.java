@@ -3,35 +3,29 @@ package org.example;
 import java.util.Scanner;
 
 public class Contador {
+
     public static void main(String[] args) {
-        Scanner terminal = new Scanner(System.in);
-        System.out.println("Digite o primeiro parâmetro");
-        int parametroUm = terminal.nextInt();
-        System.out.println("Digite o segundo parâmetro");
-        int parametroDois = terminal.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        double saldo = 0;
+        while (true) {
 
-        try {
-            contar(parametroUm, parametroDois);
-        } catch (ParametrosInvalidosException exception) {
-            System.out.println("Erro: " + exception.getMessage());
-        }
-    }
+            System.out.println("\n1. Depositar \n2.Sacar \n3.Consultar Saldo \n4.Encerrar");
+            int opcao = scanner.nextInt();
 
-    static void contar(int parametroUm, int parametroDois) throws ParametrosInvalidosException {
-        if (parametroDois <= parametroUm) {
-            throw new ParametrosInvalidosException("O segundo parâmetro deve ser maior que o primeiro!");
-        }
-
-        int contagem = parametroDois - parametroUm;
-
-        for (int i = 0; i < contagem; i++) {
-            System.out.println("Imprimindo o número " + i);
-        }
-    }
-
-    static class ParametrosInvalidosException extends Exception {
-        public ParametrosInvalidosException(String msg) {
-            super(msg);
+            switch (opcao){
+                case 1:
+                    System.out.println("DEPÓSITO");
+                    System.out.println("Digite o Valor a ser depositado: ");
+                    int valor = scanner.nextFloat()
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    break;
+            }
         }
     }
 }
